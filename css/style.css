@@ -28,16 +28,30 @@ General styles (General Module, wrapping around the modules bellow)
 */
 
 body {
-    line-height: 1;
+    /*line-height: 1;*/
+    background-color: lightgray;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Roboto", sans-serif;
+}
+
+a {
+    color: #838994;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #000;
 }
 
 .content {
     margin: 0 auto;
-    width: 70%;
+    width: 60%;
 }
 
+ol,
 ul {
-    list-style: none;
+    list-style: outside none none;
 }
 
 
@@ -48,26 +62,25 @@ Header styles (Main Module)
 
 .top-navigation {
     background-color: #fff;
+    border-bottom: 1px solid #DDD;
     position: fixed;
     width: 100%;
-    border-bottom: 1px solid #DDD;
     z-index: 9999;
+    opacity: 0.98;
+    top: 0;
 }
 
-.top-navigation > .content {
-    height: 4.375rem;
+.top-navigation .content {
+    height: 70px;
+    /* doesn't match Thinkful Karma */
 }
 
 .top-navigation .links {
-    float: right;
     color: #838994;
+    float: right;
     font-size: 1.04rem;
     margin-top: 1.7rem;
-}
-
-.top-navigation .links li.active {
-    color: #4c5058;
-    font-weight: 500;
+    margin-right: 1rem;
 }
 
 .top-navigation .links li {
@@ -75,8 +88,13 @@ Header styles (Main Module)
     margin-left: 1.563rem;
 }
 
+.top-navigation .links li.active a {
+    color: #000;
+}
+
 .top-navigation .logo {
     height: 4.375rem;
+    margin-left: 1rem;
 }
 
 
@@ -91,42 +109,50 @@ Content styles (Main Module)
     background-repeat: no-repeat;
     background-size: cover;
     height: 45.938rem;
-    overflow: auto;
+    /* overflow: auto; in Thinkful Karma but not in Marius Karma */
 }
 
 .introduction h1,
 .introduction h3 {
     color: white;
-    text-align: center;
     font-weight: 300;
+    text-align: center;
 }
 
 .introduction h1 {
-    margin-top: 17.5rem;
     font-size: 3.125rem;
+    padding-top: 17.5rem;
+    /* Thinkful Karma has margin-top, not padding-top*/
 }
 
 .introduction h3 {
-    margin-top: 1.25rem;
     font-size: 1.563rem;
+    margin-top: 1.25rem;
 }
 
 .introduction .buttons {
     color: white;
-    text-align: center;
     margin-top: 1.563rem;
+    text-align: center;
 }
 
-button {
-    width: 9.688rem;
+.introduction .big-button {
     background-color: #f15a29;
     border-color: #f15a29;
-    text-shadow: none;
-    border-style: none;
     border-radius: 4px;
-    padding: 1rem 1.5rem;
+    border-style: none;
     color: white;
     font-size: 1.125rem;
+    padding: 1rem 1.5rem;
+    text-shadow: none;
+    width: 9.688rem;
+    text-align: center;
+}
+
+.introduction buttons:hover {
+    background-color: #d9400e;
+    border-color: #cf3d0e;
+    cursor: pointer;
 }
 
 .cases {
@@ -136,16 +162,15 @@ button {
 }
 
 .cases .content {
-    margin-top: 7.7875;
-    padding: none;
     color: #1d1e21;
+    margin-top: 7.7875;
     text-align: center;
 }
 
 .cases h2 {
     font-size: 2.75rem;
-    margin: 1.625rem 0 3.125rem;
     font-weight: 300;
+    margin: 1.625rem 0 3.125rem;
 }
 
 .cases .devices > li {
@@ -154,10 +179,9 @@ button {
 }
 
 .cases .devices h3 {
-    font-weight: 400;
     font-size: 1.563rem;
-    margin: 2.5rem 0px 1.875rem;
-    /* mixing pixes with rem? */
+    font-weight: 400;
+    margin: 2.5rem 0 1.875rem;
 }
 
 
@@ -173,31 +197,52 @@ Footer styles (Main Module)
     text-align: center;
 }
 
-.content {
-    padding: 0 0.938rem;
-    margin: 0 auto;
-    min-width: 37.5rem;
-}
-
 .social hr {
-    border: 0;
-    border-top: 1px solid #eaebec;
+    /*What is "-moz" */
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #eaebec -moz-use-text-color -moz-use-text-color;
+    border-image: none;
+    border-style: solid none none;
+    border-width: 1px 0 0;
     margin: 1.313rem 0;
 }
 
+.social .copy {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: #838994;
+}
+
 .social .icons > li {
-    border-radius: 1.25rem;
-    width: 2.5rem;
-    height: 2.5rem;
-    display: inline-block;
-    margin: 1.25rem 5px;
     border: 1px solid #eaebec;
+    border-radius: 1.25rem;
+    display: inline-block;
+    height: 2.5rem;
+    margin: 1.25rem 5px;
     padding: 0.625rem 0;
     text-align: center;
+    width: 2.5rem;
 }
 
 .social .twitter {
     color: #55acee;
+}
+
+.social .facebook {
+    color: #4c66a4;
+}
+
+.social .instagram {
+    color: #3f729b;
+}
+
+.social .icons > li:hover {
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: #04c2fc;
 }
 
 .fa {
@@ -207,32 +252,6 @@ Footer styles (Main Module)
     text-rendering: auto;
 }
 
-.fa-twitter:before {
-    content: "\f099";
-}
-
-.social .facebook {
-    color: #4c66a4;
-}
-
-.fa-facebook:before {
-    content: "\f09a";
-}
-
-.social .instagram {
-    color: #3f729b;
-}
-
-.fa-instagram:before {
-    content: "\f16d";
-}
-
-.social .copy {
-    font-size: 0.9rem;
-    font-weight: 300;
-    color: #838994;
-}
-
 
 /* -------------------------------------
 place all the desktop styles above this line
@@ -240,3 +259,69 @@ Responsive styles
 (the very last module in the CSS, contains all the media queries and it is dealing with the compatibility with mobiles and tablets)
 place all the mobile tables styles bellow this line
 */
+
+
+/*ipad lanscape / small laptop*/
+
+@media only screen and (max-width: 1024px) {
+    /* acting like an IF statement, the media query is a set of conditions in which the containing css will be applied
+    for example the statament above says: IF the media on which this CSS is going to used is SCREEN (Mobiles, Tables, Laptops, Desktops or Projectors) and the maximum resolution of that device is 1024px, THEN apply the body color blue for all the text
+    */
+    .content {
+        width: 80%;
+    }
+}
+
+
+/*ipad potrait*/
+
+@media only screen and (max-width: 768px) {
+    .content {
+        width: 99%;
+    }
+    .top-navigation .links {
+        margin-right: 1rem;
+        width: 80%;
+        font-size: .7rem;
+    }
+    .top-navigation .links li {
+        margin-left: 1rem;
+    }
+    .introduction {
+        height: 24.938rem;
+    }
+    .introduction h1 {
+        font-size: 2.125rem;
+        padding-top: 8.5rem;
+    }
+    .cases .devices h3 {
+        font-size: 1rem;
+    }
+}
+
+
+/*iPhone landscape*/
+
+@media only screen and (max-width: 480px) {
+    .top-navigation .links {
+        font-size: 0.7rem;
+        width: 75%;
+        margin-right: 0;
+    }
+    .top-navigation .links li {
+        margin-left: 0;
+    }
+    .cases .devices > li {
+        width: 99%;
+        float: none;
+    }
+}
+
+
+/*iPhone portrait*/
+
+@media only screen and (max-width: 320px) {
+    .top-navigation .links {
+        width: 70%;
+    }
+}
